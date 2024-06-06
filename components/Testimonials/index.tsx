@@ -5,29 +5,29 @@ import SingleTestimonial from "./SingleTestimonial";
 const testimonialData: Testimonial[] = [
   {
     id: 1,
-    name: "Musharof Chy",
-    designation: "Founder @TailGrids",
+    name: "Zied Jday",
+    designation: "CEO SOTUPUB",
     content:
-      "Our members are so impressed. It's intuitive. It's clean. It's distraction free. If you're building a community.",
+      "Mon ordinateur portable a été réparé en un rien de temps. Les techniciens étaient compétents et très sympathiques. Je suis extrêmement satisfait du service ! Merci beaucoup !",
     image: "/images/testimonials/auth-01.png",
     star: 5,
   },
   {
     id: 2,
-    name: "Devid Weilium",
-    designation: "Founder @UIdeck",
+    name: "Rania Azzabi",
+    designation: "Fondatrice ReparationEnLigne",
     content:
-      "Our members are so impressed. It's intuitive. It's clean. It's distraction free. If you're building a community.",
+      "Excellent service du début à la fin. Mon écran de tablette était fissuré et ils l'ont remplacé en un temps record. Communication claire et prix honnêtes. Je reviendrai sans hésiter.",
     image: "/images/testimonials/auth-02.png",
     star: 5,
   },
   {
     id: 3,
-    name: "Lethium Frenci",
-    designation: "Founder @Lineicons",
+    name: "Mohamed Ben Ameur",
+    designation: "Fondateur Kronix",
     content:
-      "Our members are so impressed. It's intuitive. It's clean. It's distraction free. If you're building a community.",
-    image: "/images/testimonials/auth-03.png",
+      "Grâce à Réparations Électroniques Premium, mon smartphone fonctionne comme neuf ! Service rapide, professionnel et à un prix abordable. Je recommande vivement !",
+    image: "/images/testimonials/auth-01.png",
     star: 5,
   },
 ];
@@ -37,8 +37,8 @@ const Testimonials = () => {
     <section className="dark:bg-bg-color-dark bg-gray-light relative z-10 py-16 md:py-20 lg:py-28">
       <div className="container">
         <SectionTitle
-          title="What Our Users Says"
-          paragraph="There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration in some form."
+          title="Témoignages"
+          paragraph="Découvrez ce que nos clients disent de Réparations Électroniques. Nos témoignages reflètent notre engagement envers des réparations rapides, fiables et un service client exceptionnel. Rejoignez notre communauté de clients satisfaits !"
           center
         />
 
