@@ -1,0 +1,311 @@
+{
+    "category": [
+        {
+            "name": "Téléphone",
+            "marks": [
+                {
+                    "name": "Apple",
+                    "ranges": [
+                        {
+                            "name": "iPhone 12",
+                            "models": [
+                                "12 Mini",
+                                "12",
+                                "12 Pro",
+                                "12 Pro Max"
+                            ]
+                        },
+                        {
+                            "name": "iPhone 11",
+                            "models": [
+                                "11",
+                                "11 Pro",
+                                "11 Pro Max"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "Samsung",
+                    "ranges": [
+                        {
+                            "name": "Galaxy S21",
+                            "models": [
+                                "S21",
+                                "S21+",
+                                "S21 Ultra"
+                            ]
+                        },
+                        {
+                            "name": "Galaxy Note20",
+                            "models": [
+                                "Note20",
+                                "Note20 Ultra"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Ordinateur",
+            "marks": [
+                {
+                    "name": "Dell",
+                    "ranges": [
+                        {
+                            "name": "XPS",
+                            "models": [
+                                "XPS 13",
+                                "XPS 15",
+                                "XPS 17"
+                            ]
+                        },
+                        {
+                            "name": "Inspiron",
+                            "models": [
+                                "Inspiron 14",
+                                "Inspiron 15",
+                                "Inspiron 17"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "HP",
+                    "ranges": [
+                        {
+                            "name": "Pavilion",
+                            "models": [
+                                "Pavilion 14",
+                                "Pavilion 15",
+                                "Pavilion 17"
+                            ]
+                        },
+                        {
+                            "name": "Envy",
+                            "models": [
+                                "Envy 13",
+                                "Envy 15",
+                                "Envy 17"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Tablette",
+            "marks": [
+                {
+                    "name": "Apple",
+                    "ranges": [
+                        {
+                            "name": "iPad Pro",
+                            "models": [
+                                "11 inch",
+                                "12.9 inch"
+                            ]
+                        },
+                        {
+                            "name": "iPad Air",
+                            "models": [
+                                "Air 4",
+                                "Air 3"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "Samsung",
+                    "ranges": [
+                        {
+                            "name": "Galaxy Tab S7",
+                            "models": [
+                                "S7",
+                                "S7+"
+                            ]
+                        },
+                        {
+                            "name": "Galaxy Tab A7",
+                            "models": [
+                                "A7 10.4",
+                                "A7 Lite"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Console de jeux",
+            "marks": [
+                {
+                    "name": "Sony",
+                    "ranges": [
+                        {
+                            "name": "PlayStation 5",
+                            "models": [
+                                "Standard Edition",
+                                "Digital Edition"
+                            ]
+                        },
+                        {
+                            "name": "PlayStation 4",
+                            "models": [
+                                "Slim",
+                                "Pro"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "Microsoft",
+                    "ranges": [
+                        {
+                            "name": "Xbox Series X",
+                            "models": [
+                                "Standard"
+                            ]
+                        },
+                        {
+                            "name": "Xbox Series S",
+                            "models": [
+                                "Standard"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Imprimante",
+            "marks": [
+                {
+                    "name": "HP",
+                    "ranges": [
+                        {
+                            "name": "LaserJet",
+                            "models": [
+                                "Pro M15w",
+                                "Pro MFP M28w"
+                            ]
+                        },
+                        {
+                            "name": "DeskJet",
+                            "models": [
+                                "2720",
+                                "3760"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "Canon",
+                    "ranges": [
+                        {
+                            "name": "PIXMA",
+                            "models": [
+                                "TR4550",
+                                "TS3350"
+                            ]
+                        },
+                        {
+                            "name": "MAXIFY",
+                            "models": [
+                                "MB2750",
+                                "MB2150"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Télévision & Écran",
+            "marks": [
+                {
+                    "name": "Samsung",
+                    "ranges": [
+                        {
+                            "name": "QLED",
+                            "models": [
+                                "Q60T",
+                                "Q70T"
+                            ]
+                        },
+                        {
+                            "name": "UHD",
+                            "models": [
+                                "TU7100",
+                                "TU8500"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "LG",
+                    "ranges": [
+                        {
+                            "name": "OLED",
+                            "models": [
+                                "CX",
+                                "BX"
+                            ]
+                        },
+                        {
+                            "name": "NanoCell",
+                            "models": [
+                                "NANO91",
+                                "NANO86"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Montre Intelligente",
+            "marks": [
+                {
+                    "name": "Apple",
+                    "ranges": [
+                        {
+                            "name": "Watch Series 6",
+                            "models": [
+                                "40mm",
+                                "44mm"
+                            ]
+                        },
+                        {
+                            "name": "Watch SE",
+                            "models": [
+                                "40mm",
+                                "44mm"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "Samsung",
+                    "ranges": [
+                        {
+                            "name": "Galaxy Watch3",
+                            "models": [
+                                "41mm",
+                                "45mm"
+                            ]
+                        },
+                        {
+                            "name": "Galaxy Watch Active2",
+                            "models": [
+                                "40mm",
+                                "44mm"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
