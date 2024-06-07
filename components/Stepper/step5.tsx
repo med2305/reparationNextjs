@@ -42,10 +42,10 @@ const Step5 = () => {
             }
             const response = await createDemande(data).then(
                 () => {
-                    // localStorage.removeItem('category');
-                    // localStorage.removeItem('mark');
-                    // localStorage.removeItem('range');
-                    // localStorage.removeItem('model');
+                    localStorage.removeItem('category');
+                    localStorage.removeItem('mark');
+                    localStorage.removeItem('range');
+                    localStorage.removeItem('model');
                 }
             ).finally(
                 () => {
