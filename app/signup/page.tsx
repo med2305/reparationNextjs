@@ -16,6 +16,7 @@ const SignupPage = () => {
   const [name, setName] = useState('')
   const [address, setAddress] = useState('')
   const [phone, setPhone] = useState('')
+  const [role, setRole] = useState('client')
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -24,9 +25,9 @@ const SignupPage = () => {
         email,
         password,
         name,
-        adress:address,
-        phoneNumber:phone,
-        role:"client"
+        adress: address,
+        phoneNumber: phone,
+        role
       }
       const response = await register(data)
       console.log(response)
@@ -44,7 +45,7 @@ const SignupPage = () => {
                 <h3 className="mb-3 text-center text-2xl font-bold text-black dark:text-white sm:text-3xl">
                   Créer Votre Compte
                 </h3>
-                
+
                 {/* <button className="border-stroke dark:text-body-color-dark dark:shadow-two mb-6 flex w-full items-center justify-center rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none transition-all duration-300 hover:border-primary hover:bg-primary/5 hover:text-primary dark:border-transparent dark:bg-[#2C303B] dark:hover:border-primary dark:hover:bg-primary/5 dark:hover:text-primary dark:hover:shadow-none">
                   <span className="mr-3">
                     <svg
@@ -82,7 +83,7 @@ const SignupPage = () => {
                   Sign in with Google
                 </button> */}
 
-                
+
                 <form className="mt-8" onSubmit={handleSubmit}>
                   <div className="mb-8">
                     <label
@@ -134,7 +135,26 @@ const SignupPage = () => {
                       onChange={(e) => setPhone(e.target.value)}
                       className="border-stroke dark:text-body-color-dark dark:shadow-two w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none transition-all duration-300 focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:focus:border-primary dark:focus:shadow-none"
                     />
-                    </div>
+                  </div>
+                  <div className="mb-8">
+                    <label
+                      htmlFor="role"
+                      className="mb-3 block text-sm text-dark dark:text-white"
+                    >
+                      {" "}
+                      Role{" "}
+                    </label>
+                    <select
+                      name="role"
+                      value={role}
+                      onChange={(e) => setRole(e.target.value)}
+                      className="border-stroke dark:text-body-color-dark dark:shadow-two w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none transition-all duration-300 focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:focus:border-primary dark:focus:shadow-none"
+                    >
+                      <option value="client">Client</option>
+                      <option value="technician">Technicien</option>
+                      <option value="delivery">Livreur</option>
+                    </select>
+                  </div>
                   <div className="mb-8">
                     <label
                       htmlFor="email"
@@ -169,17 +189,17 @@ const SignupPage = () => {
                       className="border-stroke dark:text-body-color-dark dark:shadow-two w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none transition-all duration-300 focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:focus:border-primary dark:focus:shadow-none"
                     />
                   </div>
-                  
+
                   <div className="mb-6">
                     <button className="shadow-submit dark:shadow-submit-dark flex w-full items-center justify-center rounded-sm bg-primary px-9 py-4 text-base font-medium text-white duration-300 hover:bg-primary/90">
-                      Sign up
+                      S&apos;inscrire
                     </button>
                   </div>
                 </form>
                 <p className="text-center text-base font-medium text-body-color">
-                  Already using Startup?{" "}
+                  Vous avez déja un compte?{" "}
                   <Link href="/signin" className="text-primary hover:underline">
-                    Sign in
+                    Se connecter
                   </Link>
                 </p>
               </div>

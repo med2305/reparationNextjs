@@ -20,6 +20,17 @@ export const register = async (data) => {
   }
 };
 
+export const forgetPWD = async (email) => {
+  try {
+    const response = await api.post('/auth/forgetPWD',  {email} );
+    console.log(response);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+
 export const logout = async () => {
   try {
     const response = await api.post('/logout');

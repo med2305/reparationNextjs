@@ -2,6 +2,9 @@
 import React, { useRef, useState } from 'react';
 import { createDemande } from "@/api/axios/demande";
 import { useRouter } from 'next/navigation';
+import { jwtDecode, JwtPayload } from 'jwt-decode';
+import Cookies from 'js-cookie';
+import * as jose from 'jose'
 
 const Step5 = () => {
     const router = useRouter();
@@ -10,7 +13,15 @@ const Step5 = () => {
     const [imei, setImei] = useState(null);
     const [description, setDescription] = useState(null);
     const [photo, setPhoto] = useState(null);
+    // const [userId, setUserId] = useState(null);
+    let userId: any;
+    const token = Cookies.get('token');
+    // let clientId : BigInteger;
 
+    if (token) {
+        const decodedToken = jose.decodeJwt(token)
+        userId = decodedToken.userId
+    }
     const handleButtonClick = (event) => {
         event.preventDefault();
         fileInputRef.current.click();
@@ -39,6 +50,7 @@ const Step5 = () => {
                 mark: localStorage.getItem('mark'),
                 range: localStorage.getItem('range'),
                 model: localStorage.getItem('model'),
+                clientId: userId
             }
             const response = await createDemande(data).then(
                 () => {

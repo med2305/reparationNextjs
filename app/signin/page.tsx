@@ -78,12 +78,12 @@ const SigninPage = () => {
                       htmlFor="email"
                       className="mb-3 block text-sm text-dark dark:text-white"
                     >
-                      Your Email
+                      Email
                     </label>
                     <input
                       type="email"
                       name="email"
-                      placeholder="Enter your Email"
+                      placeholder="Entrer votre Email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       className="border-stroke dark:text-body-color-dark dark:shadow-two w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none transition-all duration-300 focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:focus:border-primary dark:focus:shadow-none"
@@ -94,12 +94,12 @@ const SigninPage = () => {
                       htmlFor="password"
                       className="mb-3 block text-sm text-dark dark:text-white"
                     >
-                      Your Password
+                      Mot de passe
                     </label>
                     <input
                       type="password"
                       name="password"
-                      placeholder="Enter your Password"
+                      placeholder="Entrer votre mot de passe"
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
                       className="border-stroke dark:text-body-color-dark dark:shadow-two w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none transition-all duration-300 focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:focus:border-primary dark:focus:shadow-none"
@@ -136,28 +136,28 @@ const SigninPage = () => {
                             </span>
                           </div>
                         </div>
-                        Keep me signed in
+                        Rester connecté
                       </label>
                     </div>
                     <div>
                       <a
-                        href="#0"
+                        href="/forgetPSW"
                         className="text-sm font-medium text-primary hover:underline"
                       >
-                        Forgot Password?
+                        Mot de Passe oublié ?
                       </a>
                     </div>
                   </div>
                   <div className="mb-6">
                     <button type="submit" className="shadow-submit dark:shadow-submit-dark flex w-full items-center justify-center rounded-sm bg-primary px-9 py-4 text-base font-medium text-white duration-300 hover:bg-primary/90">
-                      Sign in
+                      Se connecter
                     </button>
                   </div>
                 </form>
                 <p className="text-center text-base font-medium text-body-color">
-                  Don’t you have an account?{" "}
+                  Vous n&apos;avez pas de compte ?{" "}
                   <Link href="/signup" className="text-primary hover:underline">
-                    Sign up
+                    S&apos;inscrire
                   </Link>
                 </p>
               </div>
