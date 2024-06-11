@@ -14,11 +14,11 @@ const AboutPage = () => {
   return (
     <>
       <Breadcrumb
-        pageName="About Page"
-        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In varius eros eget sapien consectetur ultrices. Ut quis dapibus libero."
-      />
+    pageName="Réparations Électroniques"
+    description="Nous sommes spécialisés dans la réparation d'appareils électroniques. Nous offrons des services de réparation pour une variété d'appareils, y compris les smartphones, les tablettes, et plus encore."
+/>
       <AboutSectionOne />
-      <AboutSectionTwo />
+      {/* <AboutSectionTwo /> */}
     </>
   );
 };

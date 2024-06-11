@@ -3,7 +3,7 @@ import Cookies from 'js-cookie';
 
 const api = axios.create({
   baseURL: 'http://localhost:3000/api/v1',
-  timeout: 1000,
+  timeout: 10000,
 });
 
 // Add a request interceptor

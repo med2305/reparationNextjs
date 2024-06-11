@@ -7,6 +7,30 @@
                     "name": "Apple",
                     "ranges": [
                         {
+                            "name": "iPhone 8",
+                            "models": [
+                                "8",
+                                "8 Plus"
+                            ]
+                        },
+                        {
+                            "name": "iPhone X",
+                            "models": [
+                                "X",
+                                "XS",
+                                "XS Max",
+                                "XR"
+                            ]
+                        },
+                        {
+                            "name": "iPhone 11",
+                            "models": [
+                                "11",
+                                "11 Pro",
+                                "11 Pro Max"
+                            ]
+                        },
+                        {
                             "name": "iPhone 12",
                             "models": [
                                 "12 Mini",
@@ -16,11 +40,28 @@
                             ]
                         },
                         {
-                            "name": "iPhone 11",
+                            "name": "iPhone 13",
                             "models": [
-                                "11",
-                                "11 Pro",
-                                "11 Pro Max"
+                                "13 Mini",
+                                "13",
+                                "13 Pro",
+                                "13 Pro Max"
+                            ]
+                        },
+                        {
+                            "name": "iPhone 14",
+                            "models": [
+                                "14",
+                                "14 Pro",
+                                "14 Pro Max"
+                            ]
+                        },
+                        {
+                            "name": "iPhone 15",
+                            "models": [
+                                "15",
+                                "15 Pro",
+                                "15 Pro Max"
                             ]
                         }
                     ]
@@ -41,6 +82,57 @@
                             "models": [
                                 "Note20",
                                 "Note20 Ultra"
+                            ]
+                        },
+                        {
+                            "name": "Galaxy S22",
+                            "models": [
+                                "S22",
+                                "S22+",
+                                "S22 Ultra"
+                            ]
+                        },
+                        {
+                            "name": "Galaxy S20",
+                            "models": [
+                                "S20",
+                                "S20+",
+                                "S20 Ultra"
+                            ]
+                        },
+                        {
+                            "name": "Galaxy Note10",
+                            "models": [
+                                "Note10",
+                                "Note10+"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "Google",
+                    "ranges": [
+                        {
+                            "name": "Pixel 6",
+                            "models": [
+                                "6",
+                                "6 Pro"
+                            ]
+                        },
+                        {
+                            "name": "Pixel 5",
+                            "models": [
+                                "5",
+                                "5a 5G"
+                            ]
+                        },
+                        {
+                            "name": "Pixel 4",
+                            "models": [
+                                "4",
+                                "4 XL",
+                                "4a",
+                                "4a 5G"
                             ]
                         }
                     ]
