@@ -1,11 +1,13 @@
 "use client"
 import { Metadata } from "next";
 import React, { useEffect, useState } from 'react';
-import { FaTrash, FaEdit, FaInfo, FaCheck } from 'react-icons/fa';
+import { getUsers, deleteUser } from '../../../api/axios/users';
+import { FaTrash, FaEdit } from 'react-icons/fa';
 import { useRouter } from 'next/navigation';
-import { deleteDemande, getDemandes, updateDemande } from "@/api/axios/demande";
-import Cookies from 'js-cookie';
-import * as jose from 'jose'
+import { User } from "@/types/user";
+import Loader from "@/components/loader/loader";
+import withAuthorization from "@/components/authorization/withAuthorization";
+import Link from "next/link";
 
 // export const metadata: Metadata = {
 //   title: "Blog Page | Free Next.js Template for Startup and SaaS",
@@ -13,38 +15,33 @@ import * as jose from 'jose'
 //   // other metadata
 // };
 
-const Demandes = () => {
-  const [demandes, setDemandes] = useState([]);
+const Users = () => {
+  const [loading, setLoading] = useState(false);
+  const [users, setUsers] = useState([]);
   const router = useRouter();
-  let userId: any;
-  const token = Cookies.get('token');
-  // let clientId : BigInteger;
-
-  if (token) {
-    const decodedToken = jose.decodeJwt(token)
-    userId = decodedToken.userId
-  }
 
   useEffect(() => {
-    const fetchDemandes = async () => {
-      const data = await getDemandes(["En attente de réparation", "technicien affecté"], userId, null, null);
-      setDemandes(data.data);
+    const fetchUsers = async () => {
+      setLoading(true);
+      const data = await getUsers();
+      setUsers(data);
+      setLoading(false);
     };
-    fetchDemandes();
+    fetchUsers();
   }, []);
 
-  const handleDetails = (user) => {
-    const Demandestring = encodeURIComponent(JSON.stringify(user));
-    router.push(`/admin/demandesListe/${user._id}?user=${Demandestring}`);
+  const handleUpdate = (user) => {
+    const userString = encodeURIComponent(JSON.stringify(user));
+    router.push(`/admin/users/${user._id}?user=${userString}`);
     // router.push(`${user._id}`);    
   };
 
-  const handleAccept = async (id) => {
+  const handleDelete = async (id) => {
     try {
-      await updateDemande(id, { status: "En cours de livraison" });
+      await deleteUser(id);
       // Refresh the user list after a user is deleted
-      const updatedDemandes = await getDemandes();
-      setDemandes(updatedDemandes.data);
+      const updatedUsers = await getUsers();
+      setUsers(updatedUsers);
     } catch (error) {
       console.error(error);
     }
@@ -52,35 +49,45 @@ const Demandes = () => {
 
   return (
     <>
+      {loading && <Loader />}
       <section className="py-1 bg-blueGray-50 ">
         <div className="w-full xl:w-8/12 mb-12 xl:mb-0 px-4 mx-auto mt-24">
+        <Link
+          href="/admin/users/addUser"
+          className="ease-in-up shadow-btn hover:shadow-btn-hover hidden rounded-sm bg-primary px-8 py-3 text-base font-medium text-white transition duration-300 hover:bg-opacity-90 md:block md:px-9 lg:px-6 xl:px-9 w-32 mb-8 text-center"
+        >
+          Ajouter
+        </Link>
           <div className="relative flex flex-col min-w-0 break-words bg-white dark:bg-dark w-full mb-6 shadow-lg rounded ">
+
             <div className="rounded-t mb-0 px-4 py-3 border-0">
               <div className="flex flex-wrap items-center">
                 <div className="relative w-full px-4 max-w-full flex-grow flex-1">
-                  <h3 className="font-semibold text-base text-blueGray-700">Liste des Demandes</h3>
+                  <h3 className="font-semibold text-base text-blueGray-700">Liste des Utilisateurs</h3>
                 </div>
+                {/* <div className="relative w-full px-4 max-w-full flex-grow flex-1 text-right">
+                  <button className="bg-indigo-500 text-white active:bg-indigo-600 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">See all</button>
+                </div> */}
               </div>
             </div>
-
             <div className="block w-full overflow-x-auto">
               <table className="items-center bg-transparent w-full border-collapse ">
                 <thead>
                   <tr>
                     <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                      category
+                      Nom
                     </th>
                     <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                      mark
+                      Email
                     </th>
                     <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                      range
+                      Téléphone
                     </th>
                     <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                      model
+                      Adresse
                     </th>
                     <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                      Status
+                      Role
                     </th>
                     <th className="px-2 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
                     </th>
@@ -90,31 +97,29 @@ const Demandes = () => {
                 </thead>
 
                 <tbody>
-                  {demandes && demandes?.map((demande) => (
-                    <tr key={demande._id}>
+                  {users.map((user) => (
+                    <tr key={user._id}>
                       <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left text-blueGray-700">
-                        {demande.category} {/* Replace with the actual property names */}
+                        {user.name} {/* Replace with the actual property names */}
                       </th>
                       <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        {demande.mark}
+                        {user.email}
                       </td>
                       <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        {demande.range}
+                        {user.phoneNumber}
                       </td>
                       <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        {demande.model}
+                        {user.adress}
                       </td>
                       <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        {demande.status === 'technicien affecté' ? 'En attente arrivage' : demande.status}
+                        {user.role}
                       </td>
                       <td className="border-t-0 px-2 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        <FaInfo className="cursor-pointer" onClick={() => handleDetails(demande)} />
+                        <FaEdit className="cursor-pointer" onClick={() => handleUpdate(user)} />
                       </td>
-                      {demande.status === 'En attente de réparation' &&
-                        <td className="border-t-0 px-2 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                          <FaCheck className="cursor-pointer" onClick={() => handleAccept(demande._id)} />
-                        </td>
-                      }
+                      <td className="border-t-0 px-2 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                        <FaTrash className="cursor-pointer" onClick={() => handleDelete(user._id)} />
+                      </td>
                     </tr>
                   ))}
                 </tbody>
@@ -123,20 +128,10 @@ const Demandes = () => {
             </div>
           </div>
         </div>
-        <footer className="relative pt-8 pb-6 mt-16">
-          <div className="container mx-auto px-4">
-            <div className="flex flex-wrap items-center md:justify-between justify-center">
-              <div className="w-full md:w-6/12 px-4 mx-auto text-center">
-                <div className="text-sm text-blueGray-500 font-semibold py-1">
-                  {/* Made with <a href="https://www.creative-tim.com/product/notus-js" rel="noreferrer" className="text-blueGray-500 hover:text-gray-800" target="_blank">Notus JS</a> by <a href="https://www.creative-tim.com" className="text-blueGray-500 hover:text-blueGray-800" target="_blank" rel="noreferrer"> Creative Tim</a>. */}
-                </div>
-              </div>
-            </div>
-          </div>
-        </footer>
+
       </section>
     </>
   );
 };
 
-export default Demandes;
+export default withAuthorization(Users, 'admin'); // replace with the roles that should have access to the page

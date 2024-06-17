@@ -9,13 +9,14 @@ export const createDemande = async (data) => {
     }
 }
 
-export const getDemandes = async (technicianId, deliveryId, status) => {
+export const getDemandes = async (status, technicianId, deliveryId, clientId) => {
     try {
         const response = await api.get('/demande', {
             params: {
+                status: Array.isArray(status) ? status.join(',') : status,
                 technicianId,
                 deliveryId,
-                status
+                clientId
             }
         });
         return response.data;

@@ -1,11 +1,13 @@
 "use client"
 import { Metadata } from "next";
 import React, { useEffect, useState } from 'react';
-import { FaTrash, FaEdit, FaInfo, FaCheck } from 'react-icons/fa';
+import { FaTrash, FaInfo } from 'react-icons/fa';
 import { useRouter } from 'next/navigation';
 import { deleteDemande, getDemandes, updateDemande } from "@/api/axios/demande";
 import Cookies from 'js-cookie';
 import * as jose from 'jose'
+import Loader from "@/components/loader/loader";
+import withAuthorization from "@/components/authorization/withAuthorization";
 
 // export const metadata: Metadata = {
 //   title: "Blog Page | Free Next.js Template for Startup and SaaS",
@@ -14,6 +16,7 @@ import * as jose from 'jose'
 // };
 
 const Demandes = () => {
+  const [loading, setLoading] = useState(false);
   const [demandes, setDemandes] = useState([]);
   const router = useRouter();
   let userId: any;
@@ -27,7 +30,7 @@ const Demandes = () => {
 
   useEffect(() => {
     const fetchDemandes = async () => {
-      const data = await getDemandes("Nouveau", null, null, null);
+      const data = await getDemandes();
       setDemandes(data.data);
     };
     fetchDemandes();
@@ -39,12 +42,13 @@ const Demandes = () => {
     // router.push(`${user._id}`);    
   };
 
-  const handleAccept = async (id) => {
+  const handleDelete = async (id) => {
     try {
-      await updateDemande(id, { technicianId: userId });
-      // Refresh the user list after a user is deleted
+      setLoading(true);
+      await deleteDemande(id);
       const updatedDemandes = await getDemandes();
       setDemandes(updatedDemandes.data);
+      setLoading(false);
     } catch (error) {
       console.error(error);
     }
@@ -52,6 +56,7 @@ const Demandes = () => {
 
   return (
     <>
+      {loading && <Loader />}
       <section className="py-1 bg-blueGray-50 ">
         <div className="w-full xl:w-8/12 mb-12 xl:mb-0 px-4 mx-auto mt-24">
           <div className="relative flex flex-col min-w-0 break-words bg-white dark:bg-dark w-full mb-6 shadow-lg rounded ">
@@ -112,7 +117,7 @@ const Demandes = () => {
                           <FaInfo className="cursor-pointer" onClick={() => handleDetails(demande)} />
                         </td>
                         <td className="border-t-0 px-2 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                          <FaCheck className="cursor-pointer" onClick={() => handleAccept(demande._id)} />
+                          <FaTrash className="cursor-pointer" onClick={() => handleDelete(demande._id)} />
                         </td>
                       </tr>
                     ))
@@ -133,4 +138,4 @@ const Demandes = () => {
   );
 };
 
-export default Demandes;
+export default withAuthorization(Demandes, 'admin'); 

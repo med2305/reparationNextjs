@@ -60,7 +60,7 @@ const Step5 = () => {
                 }
             ).finally(
                 () => {
-                    router.push(`/stepper`);
+                    router.push(`/client`);
                 }
             )
 

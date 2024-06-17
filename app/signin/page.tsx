@@ -3,6 +3,8 @@ import Link from "next/link";
 import { login } from "@/api/axios/auth";
 import { Metadata } from "next";
 import { useState } from "react";
+import { decodeJwt } from "jose";
+import { useRouter } from "next/navigation";
 
 // export const metadata: Metadata = {
 //   title: "Sign In Page | Free Next.js Template for Startup and SaaS",
@@ -11,6 +13,7 @@ import { useState } from "react";
 // };
 
 const SigninPage = () => {
+  const router = useRouter();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -19,7 +22,24 @@ const SigninPage = () => {
 
     try {
       const data = await login(email, password);
-      console.log(data);
+      const decodedToken = decodeJwt(data.token);
+      const role = decodedToken.role;
+      switch(role) {
+        case 'admin':
+          router.push('/admin/users');
+          break;
+        case 'technician':
+          router.push('/technician');
+          break;
+        case 'client':
+          router.push('/client');
+          break;
+        case 'delivery':
+          router.push('/delivery');
+          break;
+        default:
+          console.log('Invalid role');
+      }
       // handle successful login
     } catch (error) {
       console.error(error);

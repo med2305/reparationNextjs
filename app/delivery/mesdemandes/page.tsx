@@ -27,7 +27,7 @@ const Demandes = () => {
 
   useEffect(() => {
     const fetchDemandes = async () => {
-      const data = await getDemandes("Nouveau", null, null, null);
+      const data = await getDemandes("En attente de réception", null, userId, null);
       setDemandes(data.data);
     };
     fetchDemandes();
@@ -41,9 +41,9 @@ const Demandes = () => {
 
   const handleAccept = async (id) => {
     try {
-      await updateDemande(id, { technicianId: userId });
+      await updateDemande(id, { status: "En attente de réparation" });
       // Refresh the user list after a user is deleted
-      const updatedDemandes = await getDemandes();
+      const updatedDemandes = await getDemandes("En attente de réception", null, userId, null);
       setDemandes(updatedDemandes.data);
     } catch (error) {
       console.error(error);
@@ -128,6 +128,17 @@ const Demandes = () => {
             </div>
           </div>
         </div>
+        <footer className="relative pt-8 pb-6 mt-16">
+          <div className="container mx-auto px-4">
+            <div className="flex flex-wrap items-center md:justify-between justify-center">
+              <div className="w-full md:w-6/12 px-4 mx-auto text-center">
+                <div className="text-sm text-blueGray-500 font-semibold py-1">
+                  {/* Made with <a href="https://www.creative-tim.com/product/notus-js" rel="noreferrer" className="text-blueGray-500 hover:text-gray-800" target="_blank">Notus JS</a> by <a href="https://www.creative-tim.com" className="text-blueGray-500 hover:text-blueGray-800" target="_blank" rel="noreferrer"> Creative Tim</a>. */}
+                </div>
+              </div>
+            </div>
+          </div>
+        </footer>
       </section>
     </>
   );

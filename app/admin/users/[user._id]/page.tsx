@@ -3,7 +3,8 @@ import Link from "next/link";
 import { Metadata } from "next";
 import { useEffect, useState } from "react";
 import { useSearchParams } from 'next/navigation'
-import { createUser } from "@/api/axios/users";
+import { updateUser } from "@/api/axios/users";
+import withAuthorization from "@/components/authorization/withAuthorization";
 
 // export const metadata: Metadata = {
 //   title: "Sign Up Page | Free Next.js Template for Startup and SaaS",
@@ -16,13 +17,12 @@ const UpdatePage = () => {
   const userParam = searchParams.get('user');
   const userJson = decodeURIComponent(userParam);
   const user = JSON.parse(userJson);
-  const [name, setName] = useState('');
-  const [address, setAddress] = useState('');
-  const [phone, setPhone] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [role, setRole] = useState('technician')
-  console.log(role);
+  const [name, setName] = useState(user.name);
+  const [address, setAddress] = useState(user.adress);
+  const [phone, setPhone] = useState(user.phoneNumber);
+  const [email, setEmail] = useState(user.email);
+  const [password, setPassword] = useState(user.password);
+  const [role, setRole] = useState(user.role)
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -36,8 +36,8 @@ const UpdatePage = () => {
         role
       }
       console.log(data);
-
-      const response = await createUser(data)
+      
+      const response = await updateUser(user._id, data)
       console.log(response)
     } catch (error) {
       console.log(error)
@@ -165,7 +165,7 @@ const UpdatePage = () => {
                     </button>
                   </div>
                 </form>
-
+                
               </div>
             </div>
           </div>
@@ -232,4 +232,4 @@ const UpdatePage = () => {
   );
 };
 
-export default UpdatePage;
+export default withAuthorization(UpdatePage, 'admin'); 

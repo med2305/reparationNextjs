@@ -5,8 +5,10 @@ import Step2 from '@/components/Stepper/step2';
 import Step3 from '@/components/Stepper/step3';
 import Step4 from '@/components/Stepper/step4';
 import Step5 from '@/components/Stepper/step5';
+import withAuthorization from '@/components/authorization/withAuthorization';
 
-export default function StepperPage() {
+
+function StepperPage() {
     const [currentStep, setCurrentStep] = useState(1);
 
     const nextStep = () => {
@@ -61,3 +63,5 @@ export default function StepperPage() {
         </div>
     );
 }
+
+export default withAuthorization(StepperPage, 'client'); 

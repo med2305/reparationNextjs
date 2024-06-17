@@ -36,7 +36,7 @@ const Demandes = () => {
       await deleteDemande(id);
       // Refresh the user list after a user is deleted
       const updatedDemandes = await getDemandes();
-      setDemandes(updatedDemandes);
+      setDemandes(updatedDemandes.data);
     } catch (error) {
       console.error(error);
     }
