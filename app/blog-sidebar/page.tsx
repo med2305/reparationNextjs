@@ -21,11 +21,10 @@ const BlogSidebarPage = () => {
             <div className="w-full px-4 lg:w-8/12">
               <div>
                 <h1 className="mb-8 text-3xl font-bold leading-tight text-black dark:text-white sm:text-4xl sm:leading-tight">
-                  10 amazing sites to download stock photos & digital assets for
-                  free
+                  Demande.category à réparer
                 </h1>
                 <div className="mb-10 flex flex-wrap items-center justify-between border-b border-body-color border-opacity-10 pb-4 dark:border-white dark:border-opacity-10">
-                  <div className="flex flex-wrap items-center">
+                  {/* <div className="flex flex-wrap items-center">
                     <div className="mb-5 mr-10 flex items-center">
                       <div className="mr-4">
                         <div className="relative h-10 w-10 overflow-hidden rounded-full">
@@ -102,13 +101,11 @@ const BlogSidebarPage = () => {
                     >
                       Design
                     </a>
-                  </div>
+                  </div> */}
                 </div>
                 <div>
                   <p className="mb-10 text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed">
-                    Duis aute irure dolor in reprehenderit in voluptate velit
-                    esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-                    occaecat cupidatat.
+                    Demande.description
                   </p>
                   <div className="mb-10 w-full overflow-hidden rounded">
                     <div className="relative aspect-[97/60] w-full sm:aspect-[97/44]">
@@ -120,7 +117,7 @@ const BlogSidebarPage = () => {
                       />
                     </div>
                   </div>
-                  <p className="mb-8 text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed">
+                  {/* <p className="mb-8 text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                     do eiusmod tempor incididunt ut labore et dolore magna
                     aliqua. Quis enim lobortis scelerisque fermentum. Neque
@@ -142,30 +139,30 @@ const BlogSidebarPage = () => {
                     donec enim diam. Varius sit amet mattis vulputate enim nulla
                     aliquet porttitor. Odio pellentesque diam volutpat commodo
                     sed.
-                  </p>
-                  <h3 className="font-xl mb-10 font-bold leading-tight text-black dark:text-white sm:text-2xl sm:leading-tight lg:text-xl lg:leading-tight xl:text-2xl xl:leading-tight">
-                    Digital marketplace for Ui/Ux designers.
-                  </h3>
-                  <p className="mb-10 text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed">
+                  </p> */}
+                  {/* <h3 className="font-xl mb-10 font-bold leading-tight text-black dark:text-white sm:text-2xl sm:leading-tight lg:text-xl lg:leading-tight xl:text-2xl xl:leading-tight">
+                    Caractéristiques
+                  </h3> */}
+                  {/* <p className="mb-10 text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed">
                     consectetur adipiscing elit in voluptate velit esse cillum
                     dolore eu fugiat nulla pariatur. Excepteur sint occaecat
                     mattis vulputate cupidatat.
-                  </p>
-                  <ul className="mb-10 list-inside list-disc text-body-color">
+                  </p> */}
+                  {/* <ul className="mb-10 list-inside list-disc text-body-color">
                     <li className="mb-2 text-base font-medium text-body-color sm:text-lg lg:text-base xl:text-lg">
-                      Consectetur adipiscing elit in voluptate velit.
+                      Mark: demande.mark
                     </li>
                     <li className="mb-2 text-base font-medium text-body-color sm:text-lg lg:text-base xl:text-lg">
-                      Mattis vulputate cupidatat.
+                      Range: demande.range
                     </li>
                     <li className="mb-2 text-base font-medium text-body-color sm:text-lg lg:text-base xl:text-lg">
-                      Vulputate enim nulla aliquet porttitor odio pellentesque
+                      Model: demande.model
                     </li>
                     <li className="mb-2 text-base font-medium text-body-color sm:text-lg lg:text-base xl:text-lg">
-                      Ligula ullamcorper malesuada proin
+                      IMEI: demande.imei
                     </li>
-                  </ul>
-                  <div className="relative z-10 mb-10 overflow-hidden rounded-md bg-primary bg-opacity-10 p-8 md:p-9 lg:p-8 xl:p-9">
+                  </ul> */}
+                  {/* <div className="relative z-10 mb-10 overflow-hidden rounded-md bg-primary bg-opacity-10 p-8 md:p-9 lg:p-8 xl:p-9">
                     <p className="text-center text-base font-medium italic text-body-color">
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                       sed do eiusmod incididunt utionals labore et dolore magna
@@ -337,12 +334,75 @@ const BlogSidebarPage = () => {
                         <SharePost />
                       </div>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
+                <section className=" py-8 lg:py-16 antialiased">
+                  <div className="mx-auto">
+                    <div className="flex justify-between items-center mb-6">
+                      <h2 className="text-lg lg:text-2xl font-bold text-gray-900 dark:text-white">Discussion (20)</h2>
+                    </div>
+                    <form className="mb-6">
+                      <div className="py-2 px-4 mb-4 bg-white rounded-lg rounded-t-lg border border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+                        <label htmlFor="comment" className="sr-only">Your comment</label>
+                        <textarea id="comment" rows={6}
+                          className="px-0 w-full text-sm text-gray-900 border-0 focus:ring-0 focus:outline-none dark:text-white dark:placeholder-gray-400 dark:bg-gray-800"
+                          placeholder="Write a comment..." required></textarea>
+                      </div>
+                      <button type="submit"
+                        className="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center dark:text-white text-black bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800 border dark:border-white border-black">
+                        Post comment
+                      </button>
+                    </form>
+                    <article className="p-6 text-base bg-white rounded-lg dark:bg-gray-900">
+                      <footer className="flex justify-between items-center mb-2">
+                        <div className="flex items-center">
+                          <p className="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white font-semibold"><img
+                            className="mr-2 w-6 h-6 rounded-full"
+                            src="https://flowbite.com/docs/images/people/profile-picture-2.jpg"
+                            alt="Michael Gough" />Michael Gough</p>
+                          <p className="text-sm text-gray-600 dark:text-gray-400"><time
+                            title="February 8th, 2022">Feb. 8, 2022</time></p>
+                        </div>
+                        <button id="dropdownComment1Button" data-dropdown-toggle="dropdownComment1"
+                          className="inline-flex items-center p-2 text-sm font-medium text-center text-gray-500 dark:text-gray-400 bg-white rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-50 dark:bg-gray-900 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                          type="button">
+                          <svg className="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 3">
+                            <path d="M2 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm6.041 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM14 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Z" />
+                          </svg>
+                          <span className="sr-only">Comment settings</span>
+                        </button>
+
+
+                        <div id="dropdownComment1"
+                          className="hidden z-10 w-36 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
+                          <ul className="py-1 text-sm text-gray-700 dark:text-gray-200"
+                            aria-labelledby="dropdownMenuIconHorizontalButton">
+                            <li>
+                              <a href="#"
+                                className="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Edit</a>
+                            </li>
+                            <li>
+                              <a href="#"
+                                className="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Remove</a>
+                            </li>
+                            <li>
+                              <a href="#"
+                                className="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Report</a>
+                            </li>
+                          </ul>
+                        </div>
+                      </footer>
+                      <p className="text-gray-500 dark:text-gray-400">Very straight-to-point article. Really worth time reading. Thank you! But tools are just the
+                        instruments for the UX designers. The knowledge of the design tools are as important as the
+                        creation of the design strategy.</p>
+
+                    </article>
+                  </div>
+                </section>
               </div>
             </div>
             <div className="w-full px-4 lg:w-4/12">
-              <div className="shadow-three dark:bg-gray-dark mb-10 mt-12 rounded-sm bg-white p-6 dark:shadow-none lg:mt-0">
+              {/* <div className="shadow-three dark:bg-gray-dark mb-10 mt-12 rounded-sm bg-white p-6 dark:shadow-none lg:mt-0">
                 <div className="flex items-center justify-between">
                   <input
                     type="text"
@@ -367,12 +427,33 @@ const BlogSidebarPage = () => {
                     </svg>
                   </button>
                 </div>
+              </div> */}
+
+              <div className="shadow-three dark:bg-gray-dark mb-10 rounded-sm bg-white dark:shadow-none">
+                <h3 className="border-b border-body-color border-opacity-10 px-8 py-4 text-lg font-semibold text-black dark:border-white dark:border-opacity-10 dark:text-white">
+                  Caractéristiques
+
+                </h3>
+                <ul className="px-8 py-6 list-inside list-disc">
+                  <li className="mb-2 text-base font-medium text-body-color sm:text-lg lg:text-base xl:text-lg">
+                    IMEI: demande.imei
+                  </li>
+                  <li className="mb-2 text-base font-medium text-body-color sm:text-lg lg:text-base xl:text-lg">
+                    Mark: demande.mark
+                  </li>
+                  <li className="mb-2 text-base font-medium text-body-color sm:text-lg lg:text-base xl:text-lg">
+                    Range: demande.range
+                  </li>
+                  <li className="mb-2 text-base font-medium text-body-color sm:text-lg lg:text-base xl:text-lg">
+                    Model: demande.model
+                  </li>
+                </ul>
               </div>
               <div className="shadow-three dark:bg-gray-dark mb-10 rounded-sm bg-white dark:shadow-none">
                 <h3 className="border-b border-body-color border-opacity-10 px-8 py-4 text-lg font-semibold text-black dark:border-white dark:border-opacity-10 dark:text-white">
-                  Related Posts
+                  Fiche Technique
                 </h3>
-                <ul className="p-8">
+                {/* <ul className="p-8">
                   <li className="mb-6 border-b border-body-color border-opacity-10 pb-6 dark:border-white dark:border-opacity-10">
                     <RelatedPost
                       title="Best way to boost your online sales."
@@ -397,56 +478,14 @@ const BlogSidebarPage = () => {
                       date="05 Jun, 2024"
                     />
                   </li>
-                </ul>
+                </ul> */}
+                <p className="p-8 mb-10 text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed">
+                    consectetur adipiscing elit in voluptate velit esse cillum
+                    dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                    mattis vulputate cupidatat.
+                  </p>
               </div>
-              <div className="shadow-three dark:bg-gray-dark mb-10 rounded-sm bg-white dark:shadow-none">
-                <h3 className="border-b border-body-color border-opacity-10 px-8 py-4 text-lg font-semibold text-black dark:border-white dark:border-opacity-10 dark:text-white">
-                  Popular Category
-                </h3>
-                <ul className="px-8 py-6">
-                  <li>
-                    <a
-                      href="#0"
-                      className="mb-3 inline-block text-base font-medium text-body-color hover:text-primary"
-                    >
-                      Tailwind Templates
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#0"
-                      className="mb-3 inline-block text-base font-medium text-body-color hover:text-primary"
-                    >
-                      Landing page
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#0"
-                      className="mb-3 inline-block text-base font-medium text-body-color hover:text-primary"
-                    >
-                      Startup
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#0"
-                      className="mb-3 inline-block text-base font-medium text-body-color hover:text-primary"
-                    >
-                      Business
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#0"
-                      className="mb-3 inline-block text-base font-medium text-body-color hover:text-primary"
-                    >
-                      Multipurpose
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <div className="shadow-three dark:bg-gray-dark mb-10 rounded-sm bg-white dark:shadow-none">
+              {/* <div className="shadow-three dark:bg-gray-dark mb-10 rounded-sm bg-white dark:shadow-none">
                 <h3 className="border-b border-body-color border-opacity-10 px-8 py-4 text-lg font-semibold text-black dark:border-white dark:border-opacity-10 dark:text-white">
                   Popular Tags
                 </h3>
@@ -457,9 +496,9 @@ const BlogSidebarPage = () => {
                   <TagButton text="Startup" />
                   <TagButton text="Business" />
                 </div>
-              </div>
+              </div> */}
 
-              <NewsLatterBox />
+              {/* <NewsLatterBox /> */}
             </div>
           </div>
         </div>

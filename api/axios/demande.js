@@ -42,3 +42,21 @@ export const updateDemande = async (id, data) => {
         throw error;
     }
 }
+
+export const getDemande = async (data) => {
+    try {
+        const response = await api.get(`/demande/${data.id}`);
+        return response.data;
+    } catch (error) {
+        throw error;
+    }
+}
+
+export const addCommentToDemande = async (id, userId, msg) => {
+    try {
+        const response = await api.post(`/demande/${id}`, {userId, msg});
+        return response.data;
+    } catch (error) {
+        throw error;
+    }
+}

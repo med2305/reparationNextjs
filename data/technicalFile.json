@@ -1,0 +1,279 @@
+{
+    "ranges": [
+        {
+            "name": "iPhone 8",
+            "models": [
+                {
+                    "name": "8",
+                    "ficheTechnique": {
+                        "display": "4.7 inch",
+                        "resolution": "1334 x 750 pixels",
+                        "camera": "12 MP",
+                        "battery": "1821 mAh",
+                        "storage": "64/256 GB"
+                    }
+                },
+                {
+                    "name": "8 Plus",
+                    "ficheTechnique": {
+                        "display": "5.5 inch",
+                        "resolution": "1920 x 1080 pixels",
+                        "camera": "12 MP",
+                        "battery": "2691 mAh",
+                        "storage": "64/256 GB"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "iPhone X",
+            "models": [
+                {
+                    "name": "X",
+                    "ficheTechnique": {
+                        "display": "5.8 inch",
+                        "resolution": "2436 x 1125 pixels",
+                        "camera": "12 MP",
+                        "battery": "2716 mAh",
+                        "storage": "64/256 GB"
+                    }
+                },
+                {
+                    "name": "XS",
+                    "ficheTechnique": {
+                        "display": "5.8 inch",
+                        "resolution": "2436 x 1125 pixels",
+                        "camera": "12 MP",
+                        "battery": "2658 mAh",
+                        "storage": "64/256/512 GB"
+                    }
+                },
+                {
+                    "name": "XS Max",
+                    "ficheTechnique": {
+                        "display": "6.5 inch",
+                        "resolution": "2688 x 1242 pixels",
+                        "camera": "12 MP",
+                        "battery": "3174 mAh",
+                        "storage": "64/256/512 GB"
+                    }
+                },
+                {
+                    "name": "XR",
+                    "ficheTechnique": {
+                        "display": "6.1 inch",
+                        "resolution": "1792 x 828 pixels",
+                        "camera": "12 MP",
+                        "battery": "2942 mAh",
+                        "storage": "64/128/256 GB"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "iPhone 11",
+            "models": [
+                {
+                    "name": "11",
+                    "ficheTechnique": {
+                        "display": "6.1 inch",
+                        "resolution": "1792 x 828 pixels",
+                        "camera": "12 MP",
+                        "battery": "3110 mAh",
+                        "storage": "64/128/256 GB"
+                    }
+                },
+                {
+                    "name": "11 Pro",
+                    "ficheTechnique": {
+                        "display": "5.8 inch",
+                        "resolution": "2436 x 1125 pixels",
+                        "camera": "12 MP",
+                        "battery": "3046 mAh",
+                        "storage": "64/256/512 GB"
+                    }
+                },
+                {
+                    "name": "11 Pro Max",
+                    "ficheTechnique": {
+                        "display": "6.5 inch",
+                        "resolution": "2688 x 1242 pixels",
+                        "camera": "12 MP",
+                        "battery": "3969 mAh",
+                        "storage": "64/256/512 GB"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "iPhone 12",
+            "models": [
+                {
+                    "name": "12 Mini",
+                    "ficheTechnique": {
+                        "display": "5.4 inch",
+                        "resolution": "2340 x 1080 pixels",
+                        "camera": "12 MP",
+                        "battery": "2227 mAh",
+                        "storage": "64/128/256 GB"
+                    }
+                },
+                {
+                    "name": "12",
+                    "ficheTechnique": {
+                        "display": "6.1 inch",
+                        "resolution": "2532 x 1170 pixels",
+                        "camera": "12 MP",
+                        "battery": "2815 mAh",
+                        "storage": "64/128/256 GB"
+                    }
+                },
+                {
+                    "name": "12 Pro",
+                    "ficheTechnique": {
+                        "display": "6.1 inch",
+                        "resolution": "2532 x 1170 pixels",
+                        "camera": "12 MP",
+                        "battery": "2815 mAh",
+                        "storage": "128/256/512 GB"
+                    }
+                },
+                {
+                    "name": "12 Pro Max",
+                    "ficheTechnique": {
+                        "display": "6.7 inch",
+                        "resolution": "2778 x 1284 pixels",
+                        "camera": "12 MP",
+                        "battery": "3687 mAh",
+                        "storage": "128/256/512 GB"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "iPhone 13",
+            "models": [
+                {
+                    "name": "13 Mini",
+                    "ficheTechnique": {
+                        "display": "5.4 inch",
+                        "resolution": "2340 x 1080 pixels",
+                        "camera": "12 MP",
+                        "battery": "2406 mAh",
+                        "storage": "128/256/512 GB"
+                    }
+                },
+                {
+                    "name": "13",
+                    "ficheTechnique": {
+                        "display": "6.1 inch",
+                        "resolution": "2532 x 1170 pixels",
+                        "camera": "12 MP",
+                        "battery": "3095 mAh",
+                        "storage": "128/256/512 GB"
+                    }
+                },
+                {
+                    "name": "13 Pro",
+                    "ficheTechnique": {
+                        "display": "6.1 inch",
+                        "resolution": "2532 x 1170 pixels",
+                        "camera": "12 MP",
+                        "battery": "3095 mAh",
+                        "storage": "128/256/512/1 TB"
+                    }
+                },
+                {
+                    "name": "13 Pro Max",
+                    "ficheTechnique": {
+                        "display": "6.7 inch",
+                        "resolution": "2778 x 1284 pixels",
+                        "camera": "12 MP",
+                        "battery": "4352 mAh",
+                        "storage": "128/256/512/1 TB"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "iPhone 14",
+            "models": [
+                {
+                    "name": "14 Mini",
+                    "ficheTechnique": {
+                        "display": "5.4 inch",
+                        "resolution": "2340 x 1080 pixels",
+                        "camera": "12 MP",
+                        "battery": "2406 mAh",
+                        "storage": "128/256/512 GB"
+                    }
+                },
+                {
+                    "name": "14",
+                    "ficheTechnique": {
+                        "display": "6.1 inch",
+                        "resolution": "2532 x 1170 pixels",
+                        "camera": "12 MP",
+                        "battery": "3095 mAh",
+                        "storage": "128/256/512 GB"
+                    }
+                },
+                {
+                    "name": "14 Pro",
+                    "ficheTechnique": {
+                        "display": "6.1 inch",
+                        "resolution": "2532 x 1170 pixels",
+                        "camera": "12 MP",
+                        "battery": "3095 mAh",
+                        "storage": "128/256/512/1 TB"
+                    }
+                },
+                {
+                    "name": "14 Pro Max",
+                    "ficheTechnique": {
+                        "display": "6.7 inch",
+                        "resolution": "2778 x 1284 pixels",
+                        "camera": "12 MP",
+                        "battery": "4352 mAh",
+                        "storage": "128/256/512/1 TB"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "iPhone 15",
+            "models": [
+                {
+                    "name": "15",
+                    "ficheTechnique": {
+                        "display": "6.1 inch",
+                        "resolution": "2532 x 1170 pixels",
+                        "camera": "12 MP",
+                        "battery": "3095 mAh",
+                        "storage": "128/256/512 GB"
+                    }
+                },
+                {
+                    "name": "15 Pro",
+                    "ficheTechnique": {
+                        "display": "6.1 inch",
+                        "resolution": "2532 x 1170 pixels",
+                        "camera": "12 MP",
+                        "battery": "3095 mAh",
+                        "storage": "128/256/512/1 TB"
+                    }
+                },
+                {
+                    "name": "15 Pro Max",
+                    "ficheTechnique": {
+                        "display": "6.7 inch",
+                        "resolution": "2778 x 1284 pixels",
+                        "camera": "12 MP",
+                        "battery": "4352 mAh",
+                        "storage": "128/256/512/1 TB"
+                    }
+                }
+            ]
+        }
+    ]
+}
