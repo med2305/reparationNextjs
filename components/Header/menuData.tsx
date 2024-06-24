@@ -26,17 +26,23 @@ const MenuComponent: React.FC<MenuComponentProps> = ({ role }) => {
         path: "/admin/demandes",
         newTab: false,
       },
+      {
+        id: 3,
+        title: "Avis",
+        path: "/admin/avis",
+        newTab: false,
+      },
     ];
   } else if (role === 'technician') {
     menuData = [
       {
-        id: 1,
+        id: 4,
         title: "Demandes",
         path: "/technician",
         newTab: false,
       },
       {
-        id: 2,
+        id: 5,
         title: "Mes Demandes",
         path: "/technician/mesdemandes",
         newTab: false,
@@ -46,13 +52,13 @@ const MenuComponent: React.FC<MenuComponentProps> = ({ role }) => {
   else if (role === 'delivery') {
     menuData = [
       {
-        id: 1,
+        id: 6,
         title: "Demandes",
         path: "/delivery",
         newTab: false,
       },
       {
-        id: 2,
+        id: 7,
         title: "Mes Demandes",
         path: "/delivery/mesdemandes",
         newTab: false,
@@ -62,25 +68,25 @@ const MenuComponent: React.FC<MenuComponentProps> = ({ role }) => {
   else if (role === 'client') {
     menuData = [
       {
-        id: 1,
+        id: 8,
         title: "Accueil",
         path: "/",
         newTab: false,
       },
       {
-        id: 2,
+        id: 9,
         title: "A propos",
         path: "/about",
         newTab: false,
       },
       {
-        id: 3,
+        id: 10,
         title: "Support",
         path: "/contact",
         newTab: false,
       },
       {
-        id: 4,
+        id: 11,
         title: "Demandes",
         path: "/client",
         newTab: false,
@@ -90,19 +96,19 @@ const MenuComponent: React.FC<MenuComponentProps> = ({ role }) => {
   else {
     menuData = [
       {
-        id: 1,
+        id: 12,
         title: "Accueil",
         path: "/",
         newTab: false,
       },
       {
-        id: 2,
+        id: 13,
         title: "A propos",
         path: "/about",
         newTab: false,
       },
       {
-        id: 3,
+        id: 14,
         title: "Support",
         path: "/contact",
         newTab: false,

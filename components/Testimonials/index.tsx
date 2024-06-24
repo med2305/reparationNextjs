@@ -1,38 +1,53 @@
+"use client"
 import { Testimonial } from "@/types/testimonial";
 import SectionTitle from "../Common/SectionTitle";
 import SingleTestimonial from "./SingleTestimonial";
+import { useEffect, useState } from "react";
+import { getAvis } from "@/api/axios/avis";
+import Link from "next/link";
 
-const testimonialData: Testimonial[] = [
-  {
-    id: 1,
-    name: "Zied Jday",
-    designation: "CEO SOTUPUB",
-    content:
-      "Mon ordinateur portable a été réparé en un rien de temps. Les techniciens étaient compétents et très sympathiques. Je suis extrêmement satisfait du service ! Merci beaucoup !",
-    image: "/images/testimonials/auth-01.png",
-    star: 5,
-  },
-  {
-    id: 2,
-    name: "Rania Azzabi",
-    designation: "Fondatrice ReparationEnLigne",
-    content:
-      "Excellent service du début à la fin. Mon écran de tablette était fissuré et ils l'ont remplacé en un temps record. Communication claire et prix honnêtes. Je reviendrai sans hésiter.",
-    image: "/images/testimonials/auth-02.png",
-    star: 5,
-  },
-  {
-    id: 3,
-    name: "Mohamed Ben Ameur",
-    designation: "Fondateur Kronix",
-    content:
-      "Grâce à Réparations Électroniques Premium, mon smartphone fonctionne comme neuf ! Service rapide, professionnel et à un prix abordable. Je recommande vivement !",
-    image: "/images/testimonials/auth-01.png",
-    star: 5,
-  },
-];
+// const testimonialData: Testimonial[] = [
+//   {
+//     id: 1,
+//     name: "Zied Jday",
+//     designation: "CEO SOTUPUB",
+//     content:
+//       "Mon ordinateur portable a été réparé en un rien de temps. Les techniciens étaient compétents et très sympathiques. Je suis extrêmement satisfait du service ! Merci beaucoup !",
+//     image: "/images/testimonials/auth-01.png",
+//     star: 5,
+//   },
+//   {
+//     id: 2,
+//     name: "Rania Azzabi",
+//     designation: "Fondatrice ReparationEnLigne",
+//     content:
+//       "Excellent service du début à la fin. Mon écran de tablette était fissuré et ils l'ont remplacé en un temps record. Communication claire et prix honnêtes. Je reviendrai sans hésiter.",
+//     image: "/images/testimonials/auth-02.png",
+//     star: 5,
+//   },
+//   {
+//     id: 3,
+//     name: "Mohamed Ben Ameur",
+//     designation: "Fondateur Kronix",
+//     content:
+//       "Grâce à Réparations Électroniques Premium, mon smartphone fonctionne comme neuf ! Service rapide, professionnel et à un prix abordable. Je recommande vivement !",
+//     image: "/images/testimonials/auth-01.png",
+//     star: 5,
+//   },
+// ];
 
 const Testimonials = () => {
+  const [avis, setAvis] = useState([]);
+
+
+  useEffect(() => {
+    const fetchAviss = async () => {
+      const data = await getAvis();
+      console.log(data.avis);
+
+      setAvis(data.avis.filter(avis => avis.approved === true));    };
+    fetchAviss();
+  }, []);
   return (
     <section className="dark:bg-bg-color-dark bg-gray-light relative z-10 py-16 md:py-20 lg:py-28">
       <div className="container">
@@ -42,8 +57,14 @@ const Testimonials = () => {
           center
         />
 
+        <Link
+          href="/client/addAvis"
+          className="ease-in-up shadow-btn hover:shadow-btn-hover hidden rounded-sm bg-primary px-8 py-3 text-base font-medium text-white transition duration-300 hover:bg-opacity-90 md:block md:px-9 lg:px-6 xl:px-9 w-32 mb-8 text-center"
+        >
+          Ajouter
+        </Link>
         <div className="grid grid-cols-1 gap-x-8 gap-y-10 md:grid-cols-2 lg:grid-cols-3">
-          {testimonialData.map((testimonial) => (
+          {avis.map((testimonial) => (
             <SingleTestimonial key={testimonial.id} testimonial={testimonial} />
           ))}
         </div>

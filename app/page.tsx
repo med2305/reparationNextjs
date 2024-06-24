@@ -10,14 +10,18 @@ import Pricing from "@/components/Pricing";
 import Testimonials from "@/components/Testimonials";
 import Video from "@/components/Video";
 import { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "ReparTech",
-  description: "This is Home for Startup Nextjs Template",
-  // other metadata
-};
+import io from 'socket.io-client';
+import { ToastContainer, toast } from 'react-toastify';
+import * as jose from 'jose'
+import Cookies from 'js-cookie';
+// export const metadata: Metadata = {
+//   title: "ReparTech",
+//   description: "This is Home for Startup Nextjs Template",
+//   // other metadata
+// };
 
 export default function Home() {
+ 
   return (
     <>
       <ScrollUp />

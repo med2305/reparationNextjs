@@ -9,6 +9,8 @@ import { useParams } from 'next/navigation';
 import techniqueFile from '@/data/technicalFile.json'
 import Cookies from 'js-cookie';
 import * as jose from 'jose'
+import io from 'socket.io-client';
+
 // export const metadata: Metadata = {
 //   title: "Blog Details Page | Free Next.js Template for Startup and SaaS",
 //   description: "This is Blog Details Page for Startup Nextjs Template",
@@ -71,23 +73,48 @@ const DemandeDetails = () => {
     fetchDemande();
   }, []);
 
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      setIsLoading(true);
       console.log(id);
-
-      await addCommentToDemande(id.id, userId, comment);
+      const res = await addCommentToDemande(id.id, userId, comment);
       setComment('');
+      console.log(res);
+        const socket = io("http://localhost:3045", {
+          transports: ["websocket"],
+        });
+        socket.emit("project_done", {
+          message: "Project created by socket",
+          id: userId,
+        });
       const response = await getDemande(id)
       setDemande(response.data);
-      setIsLoading(false);
     } catch (error) {
       console.error('Failed to post comment:', error);
       // Optionally, show an error message
     }
   };
+
+  useEffect(() => {
+    const socket = io("http://localhost:3045", { transports: ["websocket"] });
+    console.log("homeee", id);
+    
+
+    socket.on("connect", () => {
+      console.log("Connected to server");
+    });
+
+    socket.on("project_done", async () => {
+      const response = await getDemande(id)
+      setDemande(response.data);
+    });
+
+    return () => {
+      socket.close();
+    };
+  }, []);
 
   if (isLoading) {
     return <Loader />
