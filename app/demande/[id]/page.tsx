@@ -53,8 +53,8 @@ const DemandeDetails = () => {
   // let clientId : BigInteger;
 
   if (token) {
-      const decodedToken = jose.decodeJwt(token)
-      userId = decodedToken.userId
+    const decodedToken = jose.decodeJwt(token)
+    userId = decodedToken.userId
   }
   useEffect(() => {
     const fetchDemande = async () => {
@@ -77,7 +77,7 @@ const DemandeDetails = () => {
     try {
       setIsLoading(true);
       console.log(id);
-      
+
       await addCommentToDemande(id.id, userId, comment);
       setComment('');
       const response = await getDemande(id)
@@ -101,24 +101,26 @@ const DemandeDetails = () => {
             <div className="w-full px-4 lg:w-8/12">
               <div>
                 <h1 className="mb-8 text-3xl font-bold leading-tight text-black dark:text-white sm:text-4xl sm:leading-tight">
-                  {demande.category} à réparer
+                  {demande?.category} à réparer
                 </h1>
                 <div className="mb-10 flex flex-wrap items-center justify-between border-b border-body-color border-opacity-10 pb-4 dark:border-white dark:border-opacity-10">
                 </div>
                 <div>
                   <h2 className="text-lg lg:text-2xl font-bold text-gray-900 dark:text-white mb-2">Déscription :</h2>
                   <p className="mb-10 text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed">
-                    {demande.description}
+                    {demande?.description}
                   </p>
                   <div className="mb-10 w-full overflow-hidden rounded">
                     {/* <div className="relative aspect-[97/60] w-full sm:aspect-[97/97]"> */}
-                    <Image
-                      src={demande.photo}
-                      alt="image"
-                      width={1000}
-                      height={500}
-                      className=" object-cover object-center"
-                    />
+                    {demande.photo &&
+                      <Image
+                        src={demande?.photo}
+                        alt="image"
+                        width={1000}
+                        height={500}
+                        className=" object-cover object-center"
+                      />
+                    }
                     {/* </div> */}
                   </div>
                 </div>
@@ -171,31 +173,33 @@ const DemandeDetails = () => {
                 </h3>
                 <ul className="px-9 py-6 list-inside list-disc">
                   <li className="mb-2 text-base font-medium text-body-color sm:text-lg lg:text-base xl:text-lg">
-                    <strong>Mark :</strong> {demande.mark}
+                    <strong>Mark :</strong> {demande?.mark}
                   </li>
                   <li className="mb-2 text-base font-medium text-body-color sm:text-lg lg:text-base xl:text-lg">
-                    <strong>Range :</strong> {demande.range}
+                    <strong>Range :</strong> {demande?.range}
                   </li>
                   <li className="mb-2 text-base font-medium text-body-color sm:text-lg lg:text-base xl:text-lg">
-                    <strong>Model :</strong> {demande.model}
+                    <strong>Model :</strong> {demande?.model}
                   </li>
                   <li className="mb-2 text-base font-medium text-body-color sm:text-lg lg:text-base xl:text-lg">
-                    <strong>IMEI :</strong> {demande.imei}
+                    <strong>IMEI :</strong> {demande?.imei}
                   </li>
                 </ul>
               </div>
-              <div className="shadow-three dark:bg-gray-dark mb-10 rounded-sm bg-white dark:shadow-none">
-                <h3 className="border-b border-body-color border-opacity-10 px-8 py-4 text-lg font-semibold text-black dark:border-white dark:border-opacity-10 dark:text-white">
-                  Fiche Technique
-                </h3>
-                <p className="p-8 mb-10 text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed">
-                  {modelDetails && Object.entries(modelDetails).map(([key, value]) => (
+              {modelDetails &&
+                <div className="shadow-three dark:bg-gray-dark mb-10 rounded-sm bg-white dark:shadow-none">
+                  <h3 className="border-b border-body-color border-opacity-10 px-8 py-4 text-lg font-semibold text-black dark:border-white dark:border-opacity-10 dark:text-white">
+                    Fiche Technique
+                  </h3>
+                  <p className="p-8 mb-10 text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed">
+                   {Object.entries(modelDetails).map(([key, value]) => (
                     <ul key={key} className="px-1 py-2 list-inside list-disc">
                       <li> <strong>{key}:</strong> {value}</li>
                     </ul>
-                  ))}
-                </p>
-              </div>
+                    ))}
+                  </p>
+                </div>
+              }
             </div>
           </div>
         </div>

@@ -27,23 +27,21 @@ const Demandes = () => {
 
   useEffect(() => {
     const fetchDemandes = async () => {
-      const data = await getDemandes(["technicien affecté", "En cours de livraison"], null, null, null);
+      const data = await getDemandes(["technicien affecté", "En attente de livraison"], null, null, null);
       setDemandes(data.data);
     };
     fetchDemandes();
   }, []);
 
-  const handleDetails = (user) => {
-    const Demandestring = encodeURIComponent(JSON.stringify(user));
-    router.push(`/admin/demandesListe/${user._id}?user=${Demandestring}`);
-    // router.push(`${user._id}`);    
+  const handleDetails = (id) => {
+    router.push(`/demande/${id}`);
   };
 
   const handleAcceptArrival = async (id) => {
     try {
       await updateDemande(id, { arrivalDeliveryId: userId });
       // Refresh the user list after a user is deleted
-      const updatedDemandes = await getDemandes(["technicien affecté", "En cours de livraison"], null, null, null);
+      const updatedDemandes = await getDemandes(["technicien affecté", "En attente de livraison"], null, null, null);
       setDemandes(updatedDemandes.data);
     } catch (error) {
       console.error(error);
@@ -132,9 +130,9 @@ const Demandes = () => {
                         <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                           En attente de livraison
                         </td>
-                        <td className="border-t-0 px-2 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                          <FaInfo className="cursor-pointer" onClick={() => handleDetails(demande)} />
-                        </td>
+                        {/* <td className="border-t-0 px-2 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                          <FaInfo className="cursor-pointer" onClick={() => handleDetails(demande._id)} />
+                        </td> */}
                         <td className="border-t-0 px-2 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                           {demande.arrivalDeliveryId ?
                           <FaCheck className="cursor-pointer" onClick={() => handleAcceptDepart(demande._id)} />

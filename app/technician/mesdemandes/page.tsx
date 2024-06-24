@@ -33,10 +33,8 @@ const Demandes = () => {
     fetchDemandes();
   }, []);
 
-  const handleDetails = (user) => {
-    const Demandestring = encodeURIComponent(JSON.stringify(user));
-    router.push(`/admin/demandesListe/${user._id}?user=${Demandestring}`);
-    // router.push(`${user._id}`);    
+  const handleDetails = (id) => {
+    router.push(`/demande/${id}`);
   };
 
   const handleAccept = async (id) => {
@@ -108,7 +106,7 @@ const Demandes = () => {
                         {demande.status === 'technicien affecté' ? 'En attente arrivage' : demande.status}
                       </td>
                       <td className="border-t-0 px-2 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        <FaInfo className="cursor-pointer" onClick={() => handleDetails(demande)} />
+                        <FaInfo className="cursor-pointer" onClick={() => handleDetails(demande._id)} />
                       </td>
                       {demande.status === 'En attente de réparation' &&
                         <td className="border-t-0 px-2 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">

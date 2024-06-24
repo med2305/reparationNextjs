@@ -27,23 +27,32 @@ const Demandes = () => {
 
   useEffect(() => {
     const fetchDemandes = async () => {
-      const data = await getDemandes("En attente de réception", null, userId, null);
+      const data = await getDemandes(["En attente de réception", "En cours de livraison"], null, userId, null);
       setDemandes(data.data);
     };
     fetchDemandes();
   }, []);
 
-  const handleDetails = (user) => {
-    const Demandestring = encodeURIComponent(JSON.stringify(user));
-    router.push(`/admin/demandesListe/${user._id}?user=${Demandestring}`);
-    // router.push(`${user._id}`);    
+  const handleDetails = (id) => {
+    router.push(`/demande/${id}`);
   };
 
-  const handleAccept = async (id) => {
+  const handleAcceptArrival = async (id) => {
     try {
       await updateDemande(id, { status: "En attente de réparation" });
       // Refresh the user list after a user is deleted
-      const updatedDemandes = await getDemandes("En attente de réception", null, userId, null);
+      const updatedDemandes = await getDemandes(["En attente de réception", "En cours de livraison"], null, userId, null);
+      setDemandes(updatedDemandes.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const handleAcceptDepart = async (id) => {
+    try {
+      await updateDemande(id, { status: "Terminé" });
+      // Refresh the user list after a user is deleted
+      const updatedDemandes = await getDemandes(["En attente de réception", "En cours de livraison"], null, userId, null);
       setDemandes(updatedDemandes.data);
     } catch (error) {
       console.error(error);
@@ -67,17 +76,17 @@ const Demandes = () => {
               <table className="items-center bg-transparent w-full border-collapse ">
                 <thead>
                   <tr>
-                    <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                  <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
                       category
                     </th>
                     <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
                       mark
                     </th>
                     <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                      range
+                      source
                     </th>
                     <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                      model
+                      destination
                     </th>
                     <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
                       Status
@@ -93,26 +102,38 @@ const Demandes = () => {
                   {Array.isArray(demandes) && demandes.length > 0 ? (
                     demandes.map((demande) => (
                       <tr key={demande._id}>
-                        <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left text-blueGray-700">
+                       <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left text-blueGray-700">
                           {demande.category} {/* Replace with the actual property names */}
                         </th>
                         <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                           {demande.mark}
                         </td>
-                        <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                          {demande.range}
-                        </td>
-                        <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                          {demande.model}
-                        </td>
+                        {demande.status === "technicien affecté" ?
+                          <>
+                            <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                              {demande.clientId?.adress}
+                            </td>
+                            <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                              {demande.technicianId?.adress}
+                            </td>
+                          </> :
+                          <>
+                            <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                              {demande.technicianId?.adress}
+                            </td>
+                            <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                              {demande.clientId?.adress}
+                            </td>
+                          </>
+                        }
                         <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                           {demande.status}
                         </td>
+                        {/* <td className="border-t-0 px-2 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                          <FaInfo className="cursor-pointer" onClick={() => handleDetails(demande._id)} />
+                        </td> */}
                         <td className="border-t-0 px-2 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                          <FaInfo className="cursor-pointer" onClick={() => handleDetails(demande)} />
-                        </td>
-                        <td className="border-t-0 px-2 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                          <FaCheck className="cursor-pointer" onClick={() => handleAccept(demande._id)} />
+                          <FaCheck className="cursor-pointer" onClick={() => demande.status === 'En attente de réception' ? handleAcceptArrival(demande._id) : handleAcceptDepart(demande._id)} />
                         </td>
                       </tr>
                     ))

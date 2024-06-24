@@ -16,15 +16,21 @@ const SigninPage = () => {
   const router = useRouter();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [stillLoggedIn, setStillLoggedIn] = useState(false);
+
+  const handleCheckboxChange = async (event) => {
+    const isChecked = event.target.checked;
+    setStillLoggedIn(isChecked);
+  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     try {
-      const data = await login(email, password);
+      const data = await login(email, password, stillLoggedIn);
       const decodedToken = decodeJwt(data.token);
       const role = decodedToken.role;
-      switch(role) {
+      switch (role) {
         case 'admin':
           router.push('/admin/users');
           break;
@@ -46,6 +52,7 @@ const SigninPage = () => {
       // handle error
     }
   };
+
   return (
     <>
       <section className="relative z-10 overflow-hidden pb-16 pt-36 md:pb-20 lg:pb-28 lg:pt-[180px]">
@@ -136,6 +143,8 @@ const SigninPage = () => {
                             type="checkbox"
                             id="checkboxLabel"
                             className="sr-only"
+                            onChange={handleCheckboxChange}
+
                           />
                           <div className="box mr-4 flex h-5 w-5 items-center justify-center rounded border border-body-color border-opacity-20 dark:border-white dark:border-opacity-10">
                             <span className="opacity-0">

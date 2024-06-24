@@ -1,10 +1,11 @@
 import Cookies from 'js-cookie';
 import api from './index';
 
-export const login = async (identifier, password) => {
+export const login = async (identifier, password, stillLoggedIn) => {
   try {
     const response = await api.post('/auth/login', { identifier, password });
-    Cookies.set('token', response.data.token, { expires: 30 });
+    const expires = stillLoggedIn ? 3650 : 1 / 24;
+    Cookies.set('token', response.data.token, { expires: expires });
     return response.data;
   } catch (error) {
     throw error;
@@ -13,7 +14,7 @@ export const login = async (identifier, password) => {
 
 export const register = async (data) => {
   try {
-    const response = await api.post('/auth/register',  data );
+    const response = await api.post('/auth/register', data);
     return response.data;
   } catch (error) {
     throw error;
@@ -22,7 +23,7 @@ export const register = async (data) => {
 
 export const forgetPWD = async (email) => {
   try {
-    const response = await api.post('/auth/forgetPWD',  {email} );
+    const response = await api.post('/auth/forgetPWD', { email });
     console.log(response);
     return response.data;
   } catch (error) {
